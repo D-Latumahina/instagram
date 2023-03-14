@@ -9,7 +9,7 @@
 
         <div class="col-9 ">
             <div>
-                <h2>{{ Auth::user()->username }}</h2>
+                <h2>{{ $user->username }}</h2>
             </div>
 
         <div class="d-flex">
@@ -18,9 +18,9 @@
             <div class="pr-5"><strong>100 </strong> following</div>
         </div>
 
-        <div class="pt-4 font-weight-bold"><strong> Instagram.com </strong></div>  
-        <div>Discover what's next on Instagram 🔎✨</div>
-        <div><a href="#">www.instagram.com</div></a>
+        <div class="pt-4 font-weight-bold"><strong> {{$user->profile->title }} </strong></div>  
+        <div>{{$user->profile->description }}</div>
+        <div><a href="#">{{$user->profile->url}}</div></a>
         <hr class="border border-default border-1 opacity-100">
     <div class="row pt-4">
         <div class="col-4">
