@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ProfilesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +22,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('profile.show');
+// Profile Routes
+Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profile.show');
+
+// Post Routes
+Route::get('/post/create', [PostsController::class, 'createPost']);
+Route::get('/post/{post}', [PostsController::class, 'showPost']);
+Route::post('/post', [PostsController::class, 'storePost']);

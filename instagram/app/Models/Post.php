@@ -7,13 +7,15 @@ use App\Models\Post;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Profile extends Model
+class Post extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-}
 
+}

@@ -13,7 +13,7 @@
             </div>
 
         <div class="d-flex">
-            <div class="pr-5"><strong>153 </strong> postsㅤㅤ</div>
+            <div class="pr-5"><strong>{{ $user->posts->count() }} </strong> postsㅤㅤ</div>
             <div class="pr-5"><strong>23K </strong> followersㅤㅤ</div>
             <div class="pr-5"><strong>100 </strong> following</div>
         </div>
@@ -23,15 +23,13 @@
         <div><a href="#">{{$user->profile->url}}</div></a>
         <hr class="border border-default border-1 opacity-100">
     <div class="row pt-4">
-        <div class="col-4">
-            <img src="https://avatarfiles.alphacoders.com/240/240822.jpg" class="w-100">
+        @foreach($user->posts as $post)
+        <div class="col-4 pb-4">
+            <a href="/post/{{ $post->id }}">
+            <img src="/storage/{{ $post->image }}" class="w-100">
+            </a>
         </div>
-        <div class="col-4">
-            <img src="https://avatarfiles.alphacoders.com/240/240822.jpg" class="w-100">
-        </div>
-        <div class="col-4">
-            <img src="https://avatarfiles.alphacoders.com/240/240822.jpg" class="w-100">
-        </div>
+        @endforeach
     </div>
 </div>
 @endsection
